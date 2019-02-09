@@ -13,13 +13,14 @@ body {
   line-height: 1.5rem;
 }
 
-header, footer {
+header,
+footer {
   padding: 20px;
   margin: 20px 0;
   width: 100%;
   color: #333;
   background: #ccc;
-  background-color: #FFA500;
+  background-color: #ffa500;
 }
 
 header {
@@ -31,23 +32,25 @@ section {
   float: left;
 }
 
-#left, #middle, #right {
+#left,
+#middle,
+#right {
   float: left;
   margin: 0 auto;
   padding: 15px;
-  width: calc(100%/3);
+  width: calc(100% / 3);
 }
 
 #left {
-  background-color: #30948D;
+  background-color: #30948d;
 }
 
 #middle {
-  background-color: #9E1212;
+  background-color: #9e1212;
 }
 
 #right {
-  background-color: #30948D;
+  background-color: #30948d;
 }
 
 #full {
@@ -71,7 +74,7 @@ section {
 
 aside {
   float: left;
-  width: calc(100%/4);
+  width: calc(100% / 4);
   background-color: #a6b747;
   height: 200px;
 }
