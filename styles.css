@@ -15,8 +15,46 @@ html, body {
     justify-content: center;
     align-items: center;
 }
+.tabs {
+    position: relative;
+    bottom: -5px;
+    left: -10px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    /* border: 1px solid red; */
+    z-index: -1;
+}
 
-h2 {
+.tabs h1 {
+    margin: 0;
+    padding: 18px 25px;
+    background-color: #e5e5e5;
+    border-radius: 8px 8px 0px 0px;
+    text-transform: uppercase;
+    font-size: 1.4em;
+    color: #333;
+}
+.tabs p {
+    position: relative;
+    left: -5px;
+    bottom: -10px;
+    margin: 0;
+    padding: 18px 25px 0px 25px;
+    height: 35px;
+    /* background-color: #849396; */
+    background-color: #d1d4d6;
+    /* color: #fff; */
+    color: #333;
+    border-radius: 0 8px 0 0;
+    line-height: 25px;
+    z-index: -1;
+}
+
+.wrapper h2 {
     margin: 0;
     padding: 10px;
     font-size: 1.2em;
