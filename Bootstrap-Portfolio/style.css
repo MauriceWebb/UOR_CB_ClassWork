@@ -1,0 +1,53 @@
+html, body, wrapper {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+  }
+  wrapper {
+    margin: 0;
+    height: auto;
+    min-height: 100%;
+    background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/prism.png');
+    background-position: center;
+    background-size: contain repeat;
+  }
+  .nav_body {
+    display: block;
+    background-color: #fff;
+  }
+  .logo_ {
+    margin: 0;
+    padding: 10px 15px;
+    background-color: #4aaaa5;
+  }
+  .logo_ p {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+  }
+  
+  .sub_btn {
+    background-color: #4aaaa5;
+    color: #fff;
+  }
+  .sub_btn:hover {
+    background-color: #3b8b87;
+    color: #fff;
+  }
+  
+  .main_body {
+    border-radius: 3px;
+    background-color: #fff;
+  }
+  .profile_ {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+  }
+  .footer_body {
+    display: block;
+    background-color: #666;
+    color: #fff;
+  }
