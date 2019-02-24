@@ -1,0 +1,6 @@
+I added '_d' to the end of each '.png' file within this images folder that contains my personal logo designs that I have created. These are all concepts that I have created but do not wish to have them open sourced or replicated in any way. If you read this and decide to modify the files within this folder so that the design images actually load, I do not permit you to copy my work in any way. 
+
+If you like/appreciate my work and would like any services, please contact me at: maurice.webb91@gmail.com.
+
+
+Thank you, Maurice Webb (02-09-2019). 
