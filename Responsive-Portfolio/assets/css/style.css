@@ -112,7 +112,7 @@ body {
 
 .main p {
   margin: 0;
-  float: right;
+  /* float: right; */
   line-height: 34px;
 }
 /*  portfolio styles  */
@@ -233,6 +233,10 @@ body {
   }
   .main {
     width: 90%;
+  }
+  .main .img {
+    height: 250px;
+    width: 300px;
   }
 }
 
