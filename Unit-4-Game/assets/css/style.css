@@ -12,7 +12,7 @@ body {
     padding: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(19,25,29);
+    background-color: rgba(19,25,29, 1);
     /* background-color: #333; */
     
 }
