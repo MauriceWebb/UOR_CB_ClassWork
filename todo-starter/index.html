@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Todos</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"/>
+</head>
+<body>
+
+  <div class="container">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Start Todo Delete Timer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Stop Todo Delete Timer</a>
+        </li>
+      </ul>
+    <div class="row">
+      <div class="col-md-4 offset-md-4 text-center mt-4">
+        <div class="card">
+            <div class="input-group">
+                <input id="user_input" type="text" class="form-control" placeholder="New Todo">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" id="add_todo" type="button">Add Todo</button>
+                </div>
+              </div>
+          <ul class="list-group" id="todo_list">
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
