@@ -4,33 +4,10 @@ var $time_left = $('#time_left');
 var $questions = $('#questions');
 var $picks = $('#picks');
 // Global Variables
-var trivia = [
-    {
-        question: 'What is 3 + 3?', 
-        answers: [33, 9, 8, 6],
-        answer() {
-            var correct_answer = $(this)[0].answers[1];
-            return correct_answer;
-        }
-    }
-    // {
-    //     question: 'What is 1 + 1?', 
-    //     answers: [3, 2, 11, 0],
-    //     answer() {
-    //         var correct_answer = $(this)[0].answers[1];
-    //         return correct_answer;
-    //     }
-    // }
-    // {
-    //     question: 'What is 5 + 5?', 
-    //     answers: [10, 55, 11, 7],
-    //     answer() {
-    //         var correct_answer = $(this)[0].answers[0];
-    //         return correct_answer;
-    //     }
-    // }
-];
-console.log(trivia[0].answer());
+console.log(trivia);
+var display = [];
+
+// console.log(trivia[0].answer());
 var score = 0;
     $score.html('Score: ' + score);
 var wrong = 0;
@@ -40,12 +17,16 @@ var run = function() {
     clearInterval(time_left);
     time_left = setInterval(decrement, 1000);
 }
+// start game
+run();
 
 // generate dynamic trivia
 for (var i = 0; i < trivia.length; i++) {
     // display question
     $questions.html(trivia[i].question);
+    console.log(trivia[i].answers);
     // diplay choices
+    var selection = $('<div class="row">');
     // console.log('this works');
     for (var j = 0; j < trivia[i].answers.length; j++) {
         var choice = $('<p>').attr(
@@ -56,9 +37,13 @@ for (var i = 0; i < trivia.length; i++) {
             }
             ).html(trivia[i].answers[j]);   
         // // add choice to choices
-        $picks.append(choice);
-        
+        // $picks.append(choice);
+        selection.append(choice);
     }
+    display.push(selection);
+    // console.log(display);
+    $picks.append(selection);
+
     // console.log($picks);
     // // click to grab user's answer
     $('.choices').on('click', function () {
@@ -111,5 +96,3 @@ function next_question() {
     return
 
 }
-// start game
-run();

@@ -1,63 +1,200 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
 
     <title>Hello, world!</title>
   </head>
   <body>
     <div class="container">
-        <div class="row">
-            <div class="col-md-12" id="buttons"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-8" id="gifs"></div>
-            <div class="col-md-4">
-                <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="search for a gif" aria-label="Recipient's username" aria-describedby="user input"
-                        id="user_input">
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-secondary" type="button" id="submit">Submit</button>
-                        </div>
-                </div>
+      <div class="row container">
+        <div class="col-md-8" id="buttons"></div>
+        <div class="col-md-4">
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="search for a gif"
+                aria-label="Recipient's username"
+                aria-describedby="user input"
+                id="user_input"
+              />
+              <div class="input-group-append">
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="submit"
+                >
+                  Submit
+                </button>
+              </div>
             </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 d-flex flex-wrap justify-content-center" id="gifs">
+          <!-- <div class="card col-md-5 m-2">
+                <img src="${response.data[i].images.480w_still.url}" alt="" class="img-fluid">
+                <div class="card-body col-md-12">
+                    <h5 class="card-title col-md-12">${response.data[i].title}</h5>
+                    <p>Rating: ${response.data[i].rating}</p>
+                    <a href="${response.data[i].user.profile_url}" class="card-link col-md-6">${response.data[i].user.username}</a>
+                </div>
+              </div> -->
         </div>
+        <!-- <div class="col-md-4">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="search for a gif"
+              aria-label="Recipient's username"
+              aria-describedby="user input"
+              id="user_input"
+            />
+            <div class="input-group-append">
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                id="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div> -->
+      </div>
     </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
     <!-- Optional JavaScript -->
     <script>
-        // targets
-        var buttons = $('#buttons');
-        var gifs = $('#gifs');
-        var user_input = $('#user_input');
-        var submit = $('#submit');
+      // targets
+      var buttons = $("#buttons");
+      var gifs = $("#gifs");
+      var user_input = $("#user_input");
+      var submit = $("#submit");
 
-        // create an empty array
-        var buttons_array = ['movie-1', 'movie-2', 'movie-3'];
+      // create an empty array
+      var buttons_array = ['happy', 'sad', 'angry', 'excited'];
 
-        // for loop that pushes into buttons_array
+      // function to render buttons on page
+      function render_buttons() {
+        // empty current button display of buttons
+        buttons.empty();
+        // for loop through buttons_array and renders them into buttons
         for (var i = 0; i < buttons_array.length; i++) {
-            // create new button element
-            var new_button = $('<button type="button" class="btn btn-secondary m-1">'+buttons_array[i]+ '</button>');
-            buttons.append(new_button);
+          // create new button element containing the indexed button
+          var new_button = $(
+            '<button type="button" class="btn btn-secondary m-1 giphy_btn">' +
+              buttons_array[i] +
+              "</button>"
+          );
+          // renders button to page
+          buttons.append(new_button);
         }
+      }
+      render_buttons();
 
-        // load giphy json data
-        
+      // generate dynamic buttons when clicked
+      $("#submit").on("click", function(event) {
+        // prevents the form from trying to submit itself
+        event.preventDefault();
+        // capture user_input and push it's string into the buttons_array
+        buttons_array.push(
+          $("#user_input")
+            .val()
+            .trim()
+        );
+        // render input into a button and append to page
+        render_buttons();
+      });
 
+      // load giphy json data to page when giphy_btn is clicked
+      $(document).on("click", ".giphy_btn", function(event) {
+        // prevent button from clicking it's self
+        event.preventDefault();
+        // load JSON
+        var term = $(this)
+          .text()
+          .trim();
+        // console.log(term); // this works
 
+        var queryURL =
+          "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&limit=10&q=" +
+          term;
 
-
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).then(function(response) {
+          // console.log(response);
+          for (var i = 0; i < response.data.length; i++) {
+            // console.log(response.data[i].title);
+            gifs.prepend(
+              `
+              <div class="card col-md-5 m-2 gif">
+                  <img src="${
+                    response.data[i].images.original_still.url
+                  }" img-type="still" still="${
+                    response.data[i].images.original_still.url
+                  }" gif="${
+                    response.data[i].images.original.url
+                  }" alt="" class="img-fluid">
+                  <div class="card-body col-md-12">
+                      <h5 class="card-title col-md-12">${
+                        response.data[i].title
+                      }</h5>
+                      <p>Rating: ${response.data[i].rating}</p>
+                      <a href="#" class="card-link col-md-6">${
+                        response.data[i].username
+                      }</a>
+                  </div>
+              </div>
+              `
+            );
+          }
+          
+        });
+      });
+      // change gif's still image to gif or still
+      $(document).on("click", ".gif > img", function() {
+            console.log($(this).attr("img-type"));
+            // if still, switch to gif
+            if ($(this).attr("img-type") === "still") {
+              var gif = $(this).attr('gif');
+              $(this).attr("src", gif);
+              $(this).attr("img-type", 'gif');
+            } else {
+              var still = $(this).attr('still');
+              $(this).attr("src", still);
+              $(this).attr("img-type", 'still');
+            }
+          });
     </script>
-
   </body>
 </html>
