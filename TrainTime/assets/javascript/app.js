@@ -44,6 +44,26 @@ $(document).ready(function(){
         return false;
     });
 
+    // retrieve data from database
+    database.ref().on('child_added', function(snapshot, prevChildKey){
+        var new_train_post = snapshot.val();
+        let fb_train_name = new_train_post.name,
+            fb_destination = new_train_post.dest,
+            fb_train_time = new_train_post.time,
+            fb_frequency = new_train_post.freq;
+        console.log(fb_train_name, fb_destination, fb_train_time, fb_frequency);
+
+        $('#train_data').append(`
+         <tr>
+             <td>${fb_train_name}</td>
+             <td>${fb_destination}</td>
+             <td>${fb_frequency}</td>
+             <td></td>
+             <td></td>
+         </tr>
+         `);
+    });
+
 
 // database.ref().on('child_added', function (childSnapshot) {
 //     var fb_train_name = $(childSnapshot).val().name,
