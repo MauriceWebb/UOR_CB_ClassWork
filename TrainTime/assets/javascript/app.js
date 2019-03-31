@@ -51,42 +51,22 @@ $(document).ready(function(){
             fb_destination = new_train_post.dest,
             fb_train_time = new_train_post.time,
             fb_frequency = new_train_post.freq;
-        console.log(fb_train_name, fb_destination, fb_train_time, fb_frequency);
+        // console.log(fb_train_name, fb_destination, fb_train_time, fb_frequency);
+
+        let time_left = moment().diff(moment.unix(fb_train_time), 'minutes') % fb_frequency;
+        let minutes = fb_frequency - time_left;
+        let correct_train_time = moment.unix(fb_train_time).format('h:mm A');
+
+        // console.log(time_left, minutes, correct_train_time);
 
         $('#train_data').append(`
-         <tr>
+         <tr class="text-center">
              <td>${fb_train_name}</td>
              <td>${fb_destination}</td>
              <td>${fb_frequency}</td>
-             <td></td>
-             <td></td>
+             <td>${correct_train_time}</td>
+             <td>${minutes}</td>
          </tr>
          `);
     });
-
-
-// database.ref().on('child_added', function (childSnapshot) {
-//     var fb_train_name = $(childSnapshot).val().name,
-//         fb_destination = $(childSnapshot).val().dest,
-//         fb_train_time = $(childSnapshot).val().time,
-//         fb_frequency = $(childSnapshot).val().freq;
-    // console.log(childSnapshot);
-
-    // getArrival(frequency, train_time);
-    // var time_left = moment().diff(moment.unix(fb_train_time), 'minutes') % fb_frequency,
-    //     minutes = fb_frequency - time_left,
-    //     arrival_time = moment.add(minutes, 'm').format('hh:mm A');
-
-    
-
-    // $('#train_data').append(`
-    //     <tr>
-    //         <td>${fb_train_name}</td>
-    //         <td>${fb_destination}</td>
-    //         <td>${fb_frequency}</td>
-    //         <td>${arrival_time}</td>
-    //         <td>${minutes}</td>
-    //     </tr>
-    //     `);
-// });
 });
