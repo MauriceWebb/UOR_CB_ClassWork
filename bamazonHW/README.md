@@ -1,5 +1,5 @@
 # <><><><><> BAMazon NodeJS App <><><><><>
-**A screen recording of this demo can be seen here: <LINK TO VIDEO GOES HERE>**
+**A screen recording of this demo can be seen here: https://drive.google.com/file/d/1TsQRI7DjfgRA_hCYWOGI9GvYeaxB4QFk/view**
 _________________________________________
 ### Welcome to my BAMazon store! Every week, we sell skin care, hair care, and bath & shower products. Just run `node bamazonCustomer` in your terminal to start the app!
 
@@ -22,3 +22,4 @@ The app will log into a secured database to access the data of available product
 **Upcoming updates**
   * Manager View
   * Supervisor View
+  

@@ -49,25 +49,29 @@ function getPurchase() {
       {
         type: `input`,
         name: `PRODUCT`,
-        message: `Enter the ID of the product you would like to purchase: `
+        message: `Enter the ID of the product you would like to purchase:\n`
       },
       {
         type: `input`,
         name: `QUANITY`,
-        message: `How many would you like to purchase?`
+        message: `How many would you like to purchase?\n`
       }
     ])
     .then(answers => {
       const productID = answers.PRODUCT || 0,
         quantity = answers.QUANITY || 0;
-      let item =
-        quantity < 2
-          ? `${bproducts[productID - 1].product_name}`
-          : `${bproducts[productID - 1].product_name}s`;
-      console.log(
-        `\nAlright, let me see if I can fulfill your purchase request for ${quantity} ${item}.\n`
-      );
-      finalizePurchase(productID, quantity);
+      if (productID === 0 || productID > bproducts.length) {
+        console.log(`It looks like you didn't select a product on the list...\n`);
+        getPurchase();
+      } else {
+          let item =
+          quantity < 2
+            ? `${bproducts[productID - 1].product_name}`
+            : `${bproducts[productID - 1].product_name}s`;
+          console.log(`Alright, let me see if I can fulfill your purchase request for ${quantity} ${item}.\n`
+          );
+          finalizePurchase(productID, quantity);
+        }
     });
 }
 
