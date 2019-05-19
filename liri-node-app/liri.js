@@ -88,11 +88,14 @@ function spotifyThis(name) {
         spotify
         .search({type: 'track', query: name})
         .then(function (response) {
-            let song = response.tracks.items[8],
-                artist = song.artists[0].name,
-                track = song.name,
-                purl = song.preview_url,
-                album = song.album.name;
+            let song = response.tracks.items[8];
+                // artist = song.artists[0].name,
+                // track = song.name,
+                // purl = song.preview_url,
+                // album = song.album.name;
+            console.log(`========== RESPONSE ==========`);
+            console.dir(song);
+            console.log('========== END RESPONSE ==========');
             console.log('========== SPOTIFY THIS! ==========');
             // log the Artist(s)...
             console.log(`Artist: ${artist}`);
@@ -118,6 +121,9 @@ function spotifyThis(name) {
             track = song.name,
             purl = song.preview_url,
             album = song.album.name;
+            console.log(`========== RESPONSE ==========`);
+            console.dir(song.images);
+            console.log('========== END RESPONSE ==========');
         console.log('========== SPOTIFY THIS! ==========');
         // log the Artist(s)...
         console.log(`Artist: ${artist}`);

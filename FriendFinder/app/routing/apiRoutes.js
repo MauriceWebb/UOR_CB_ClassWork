@@ -1,22 +1,42 @@
-var friends = require('../data/friends');
+var friends = require("../data/friends");
 
 module.exports = function(app) {
-  app.get('/api/friends', function(req, res) {
+  app.get("/api/friends", function(req, res) {
     res.json(friends);
   });
 
-  app.post('/api/friends', function(req, res) {
+  // app.get('/api/friends/:name', function(req, res) {
+  //   res.json(friends.filter((name) => {
+  //     return (name.name === req.params.name)? true : false;
+  //   }));
+  // });
+
+  app.post("/api/friends", function(req, res) {
     var newFriend = req.body;
-    friends.push(newFriend);
 
-    res.json(newFriend);
-  });
+    // get best match...
+    let match = {
+      index: 0,
+      least_difference: 0
+    };
 
-  app.delete('/api/friends/:id', function(req, res) {
-    friends = friends.filter(function(friend) {
-      return friend.id !== req.params.id;
+    friends.forEach((friend, i) => {
+      let difference = 0;
+      friend.scores.forEach((score, j) => {
+        difference += Math.abs(newFriend.scores[j] - score);
+      });
+      if (i === 0) {
+        match.index = i;
+        match.least_difference = difference;
+      } else if (difference < match.least_difference) {
+        match.index = i;
+        match.least_difference = difference;
+      } else return;
     });
 
-    res.end();
+    best_match = friends[match.index];
+
+    friends.push(newFriend);
+    res.json(best_match);
   });
 };
